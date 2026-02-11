@@ -28,49 +28,6 @@ export default function InternalLinks({ current }) {
                     </Link>
                 ))}
             </div>
-            <style jsx>{`
-        .internal-links {
-          margin-top: 4rem;
-          padding-top: 2rem;
-          border-top: 1px solid var(--color-border);
-        }
-        
-        .internal-links h3 {
-          margin-bottom: 1.5rem;
-          font-size: 1.125rem;
-          color: var(--color-text-bright);
-        }
-
-        .links-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-          gap: 1rem;
-        }
-
-        .internal-link {
-          display: block;
-          padding: 0.75rem 1rem;
-          background: var(--color-bg-subtle);
-          border: 1px solid var(--color-border);
-          border-radius: var(--radius-sm);
-          color: var(--color-text-secondary);
-          font-size: 0.938rem;
-          font-weight: 500;
-          transition: all 0.2s;
-        }
-
-        .internal-link:hover {
-          border-color: var(--color-gold);
-          color: var(--color-gold);
-          background: var(--color-bg-card-hover);
-        }
-
-        .internal-link.active {
-          background: var(--color-gold-glow);
-          border-color: var(--color-gold);
-          color: var(--color-gold);
-        }
-      `}</style>
         </div>
     );
 }
