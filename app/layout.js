@@ -15,12 +15,17 @@ export const metadata = {
   },
   description: 'Free financial calculators for Indian startup founders. Calculate burn rate, runway, break-even, cap table dilution, and hardware startup costs instantly.',
   keywords: ['startup calculator', 'burn rate calculator', 'runway calculator India', 'Indian startup tools', 'cap table dilution', 'break even calculator'],
+  icons: {
+    icon: '/desi-founder-tools-logo.svg',
+    shortcut: '/desi-founder-tools-logo.svg',
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body>
+      {/* Some browser extensions inject body attributes before React hydrates. */}
+      <body suppressHydrationWarning>
         <Header />
         <main>{children}</main>
         <Footer />

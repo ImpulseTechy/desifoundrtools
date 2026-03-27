@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Header() {
@@ -19,8 +20,21 @@ export default function Header() {
     <>
       <header className="header">
         <div className="header-inner">
-          <Link href="/" className="header-logo">
-            📊 Desi <span>Founder</span> Tools
+          <Link href="/" className="header-logo" aria-label="Desi Founder Tools home">
+            <Image
+              src="/desi-founder-tools-logo.svg"
+              alt=""
+              width={42}
+              height={42}
+              priority
+              className="header-logo-mark"
+            />
+            <span className="header-logo-copy">
+              <span className="header-logo-title">
+                Desi <span>Founder</span> Tools
+              </span>
+              <span className="header-logo-tag">Investor-grade startup finance for India</span>
+            </span>
           </Link>
 
           <nav>
