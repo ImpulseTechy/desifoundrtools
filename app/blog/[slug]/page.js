@@ -12,6 +12,23 @@ export async function generateMetadata({ params }) {
   return {
     title: `${post.title} | Desi Founder Blog`,
     description: post.excerpt,
+    openGraph: {
+      title: `${post.title} | Desi Founder Blog`,
+      description: post.excerpt,
+      url: `https://desifoundertools.in/blog/${post.slug}`,
+      siteName: 'Desi Founder Tools',
+      type: 'article',
+      publishedTime: post.date,
+      authors: [post.author],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+    },
+    alternates: {
+      canonical: `https://desifoundertools.in/blog/${post.slug}`,
+    },
   };
 }
 
@@ -34,8 +51,35 @@ export default async function BlogPostPage({ params }) {
     );
   }
 
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt,
+    author: {
+      '@type': 'Person',
+      name: post.author,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Desi Founder Tools',
+      url: 'https://desifoundertools.in',
+    },
+    datePublished: post.date,
+    dateModified: post.date,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://desifoundertools.in/blog/${post.slug}`,
+    },
+    url: `https://desifoundertools.in/blog/${post.slug}`,
+  };
+
   return (
     <div className="blog-post-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <div className="container">
         <div className="breadcrumb">
           <Link href="/">Home</Link>
