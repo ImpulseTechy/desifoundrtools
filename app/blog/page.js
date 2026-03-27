@@ -22,7 +22,9 @@ export default function BlogListing() {
         </section>
 
         <div className="blog-grid">
-          {blogPosts.map((post) => (
+          {[...blogPosts]
+            .sort((a, b) => new Date(b.date.replace('Last Updated: ', '')) - new Date(a.date.replace('Last Updated: ', '')))
+            .map((post) => (
             <Link href={`/blog/${post.slug}`} key={post.slug} className="blog-card">
               <div className="blog-card-meta">
                 <span>{post.date}</span> • <span>{post.author}</span>
