@@ -85,6 +85,7 @@ export default function Header() {
                 <li><Link href="/">Home</Link></li>
                 <li><Link href="/#calculators">Calculators</Link></li>
                 <li><Link href="/blog">Blog</Link></li>
+                <li><Link href="/resources">Resources</Link></li>
                 <li><Link href="/benchmarks">Benchmarks</Link></li>
                 <li><Link href="/shark-tank-glossary">Glossary</Link></li>
                 <li><Link href="/#about">About</Link></li>
@@ -121,6 +122,7 @@ export default function Header() {
         <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
         <Link href="/#calculators" onClick={() => setMenuOpen(false)}>Calculators</Link>
         <Link href="/blog" onClick={() => setMenuOpen(false)}>Blog</Link>
+        <Link href="/resources" onClick={() => setMenuOpen(false)}>Resources</Link>
         <Link href="/benchmarks" onClick={() => setMenuOpen(false)}>Benchmarks</Link>
         <Link href="/shark-tank-glossary" onClick={() => setMenuOpen(false)}>Glossary</Link>
         {calculators.map((calc) => (
