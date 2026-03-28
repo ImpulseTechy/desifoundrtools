@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { supabase } from '@/lib/supabase';
 
 export default function NewsletterSection() {
   const [email, setEmail] = useState('');
@@ -25,18 +26,41 @@ export default function NewsletterSection() {
     setErrorMsg('');
     setIsLoading(true);
 
-    const formData = new FormData();
-    formData.append('EMAIL', email);
-    formData.append('b_91900dd5777f9d1bf53583645_a646f092cc', '');
-
     try {
+      // Save to Supabase
+      const { data, error } = await supabase
+        .from('newsletter_subscribers')
+        .insert([
+          { 
+            email: email.toLowerCase().trim(),
+            subscribed_at: new Date().toISOString()
+          }
+        ]);
+
+      if (error) {
+        // Check if email already exists
+        if (error.code === '23505') {
+          setErrorMsg('Ye email already subscribed hai!');
+          return;
+        }
+        throw error;
+      }
+
+      // Also send to Mailchimp
+      const formData = new FormData();
+      formData.append('EMAIL', email);
+      formData.append('b_91900dd5777f9d1bf53583645_a646f092cc', '');
+
       await fetch('https://desifoundertools.us5.list-manage.com/subscribe/post?u=91900dd5777f9d1bf53583645&id=a646f092cc&f_id=00fd73e0f0', {
         method: 'POST',
         body: formData,
         mode: 'no-cors'
       });
+
       setSubmitted(true);
+      setEmail('');
     } catch (error) {
+      console.error('Newsletter subscription error:', error);
       setErrorMsg('Kuch problem hua, dobara try karo!');
     } finally {
       setIsLoading(false);
