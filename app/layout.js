@@ -2,6 +2,8 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import AnnouncementBar from './components/AnnouncementBar';
+import MobileBottomNav from './components/MobileBottomNav';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -45,8 +47,8 @@ export const metadata = {
     creator: '@desifoundertools',
   },
   icons: {
-    icon: '/desi-founder-tools-logo.svg',
-    shortcut: '/desi-founder-tools-logo.svg',
+    icon: '/icon.png',
+    apple: '/apple-icon.png',
   },
   alternates: {
     canonical: 'https://desifoundertools.in',
@@ -103,9 +105,11 @@ export default function RootLayout({ children }) {
       </head>
       {/* Some browser extensions inject body attributes before React hydrates. */}
       <body suppressHydrationWarning>
+        <AnnouncementBar />
         <Header />
         <main>{children}</main>
         <Footer />
+        <MobileBottomNav />
       </body>
     </html>
   );
