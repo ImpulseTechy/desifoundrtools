@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "TURBOPACK=0 next dev",
     "build": "next build",
     "start": "next start",
     "push": "bash gitpush.sh"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.100.1",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3"
