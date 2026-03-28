@@ -46,15 +46,23 @@ export default function NewsletterSection() {
         throw error;
       }
 
-      // Also send to Mailchimp
-      const formData = new FormData();
-      formData.append('EMAIL', email);
-      formData.append('b_91900dd5777f9d1bf53583645_a646f092cc', '');
-
-      await fetch('https://desifoundertools.us5.list-manage.com/subscribe/post?u=91900dd5777f9d1bf53583645&id=a646f092cc&f_id=00fd73e0f0', {
+      // Send Welcome Email using EmailJS
+      await fetch('https://api.emailjs.com/api/v1.0/email/send', {
         method: 'POST',
-        body: formData,
-        mode: 'no-cors'
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          service_id: process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_KEY,
+          template_id: process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE,
+          user_id: process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY,
+          template_params: {
+            to_email: email.trim(),
+            user_email: email.trim(),
+            reply_to: 'hello@desifoundertools.com' // Optional but good practice
+          }
+        })
       });
 
       setSubmitted(true);
@@ -81,15 +89,7 @@ export default function NewsletterSection() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="newsletter-form" style={{ position: 'relative' }}>
-              <input
-                type="text"
-                name="b_91900dd5777f9d1bf53583645_a646f092cc"
-                tabIndex="-1"
-                value=""
-                style={{ position: 'absolute', left: '-5000px' }}
-                aria-hidden="true"
-                readOnly
-              />
+
               <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
                 <input
                   type="email"
