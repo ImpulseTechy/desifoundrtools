@@ -2556,3 +2556,429 @@ p {
   }
 }
 
+/* ===== LAALA KI DUKAAN STYLES ===== */
+.laala-hero {
+  padding-bottom: 2rem;
+}
+
+.laala-sticky-nav {
+  position: sticky;
+  top: 68px; /* matching var(--header-height) */
+  z-index: 90;
+  background: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-border);
+}
+
+.laala-chips {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  scrollbar-width: none; /* Firefox */
+  justify-content: center;
+}
+.laala-chips::-webkit-scrollbar {
+  display: none;
+}
+
+.laala-chip {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  padding: 0.5rem 1.25rem;
+  border-radius: 100px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.laala-chip:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background: var(--color-bg-elevated);
+}
+
+.laala-calc-section {
+  scroll-margin-top: 140px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.laala-calc-header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.laala-calc-header h2 {
+  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.laala-calc-header p {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.laala-badge {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.8rem;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid var(--color-amber);
+  color: var(--color-amber);
+  border-radius: 100px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.laala-input {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  background: var(--color-bg-subtle);
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text-bright);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s;
+}
+.laala-input:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+.laala-helper {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 0.4rem;
+}
+
+.laala-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.laala-radio {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  background: var(--color-bg-subtle);
+  padding: 0.8rem 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.laala-radio:hover {
+  border-color: var(--color-border-hover);
+}
+
+.laala-radio input:checked + span {
+  color: var(--color-gold);
+}
+.laala-radio:has(input:checked) {
+  border-color: var(--color-gold);
+  background: rgba(245, 166, 35, 0.05);
+}
+
+.laala-pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.laala-pill-group.sm { gap: 0.5rem; }
+.laala-pill-group.xs { gap: 0.4rem; }
+
+.laala-pill {
+  flex: 1;
+  min-width: 100px;
+  text-align: left;
+  background: var(--color-bg-subtle);
+  border: 1.5px solid var(--color-border);
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-bright);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+.laala-pill-group.sm .laala-pill { min-width: 60px; padding: 0.6rem; text-align: center; }
+.laala-pill-group.xs .laala-pill { min-width: 50px; padding: 0.4rem 0.6rem; text-align: center; font-size: 0.85rem; }
+.laala-pill small {
+  font-size: 0.75rem;
+  font-weight: normal;
+  color: var(--color-text-muted);
+  margin-top: 0.2rem;
+}
+.laala-pill.active {
+  border-color: var(--color-gold);
+  background: rgba(245, 166, 35, 0.1);
+  color: var(--color-gold);
+}
+.laala-pill.active small {
+  color: var(--color-gold-light);
+}
+
+.laala-pill-input {
+  width: 100px;
+  background: var(--color-bg-subtle);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-bright);
+  padding: 0.6rem;
+  text-align: center;
+}
+.laala-pill-input:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+.laala-grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.laala-res-card {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.laala-res-card.highlight {
+  box-shadow: inset 0 0 0 1px var(--color-gold);
+  background: rgba(245, 166, 35, 0.05);
+}
+.laala-res-card.highlight-main {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background: linear-gradient(180deg, var(--color-bg-elevated) 0%, rgba(245,158,11,0.1) 100%);
+  border-color: rgba(245,158,11,0.3);
+}
+
+.laala-res-label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.laala-res-val {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text-bright);
+  margin-bottom: 0.25rem;
+}
+
+.laala-res-val.huge {
+  font-size: 2.8rem;
+}
+
+.laala-res-val.gold {
+  color: var(--color-gold);
+}
+
+.laala-res-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.laala-verdict {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-border);
+  background: var(--color-bg-elevated);
+}
+
+.laala-verdict.red { border-left-color: var(--color-red); }
+.laala-verdict.red h3 { color: var(--color-red-light); margin-bottom:0.5rem; }
+.laala-verdict.orange { border-left-color: var(--color-amber); }
+.laala-verdict.orange h3 { color: var(--color-amber); margin-bottom:0.5rem; }
+.laala-verdict.yellow { border-left-color: #facc15; }
+.laala-verdict.yellow h3 { color: #facc15; margin-bottom:0.5rem; }
+.laala-verdict.green { border-left-color: var(--color-green); }
+.laala-verdict.green h3 { color: var(--color-green-light); margin-bottom:0.5rem; }
+.laala-verdict.gold { border-left-color: var(--color-gold); }
+.laala-verdict.gold h3 { color: var(--color-gold); margin-bottom:0.5rem; }
+
+.laala-target-box {
+  margin-top: 1.25rem;
+  background: rgba(0,0,0,0.2);
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+}
+
+.gst-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.gst-line.total {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-top: 0.5rem;
+}
+.gst-hr {
+  border: 0;
+  height: 1px;
+  background: var(--color-border);
+  margin: 1rem 0;
+}
+
+.laala-bar {
+  width: 100%;
+  height: 12px;
+  background: var(--color-border);
+  border-radius: 6px;
+  display: flex;
+  overflow: hidden;
+}
+.laala-bar-fill.principal { background: #3b82f6; }
+.laala-bar-fill.interest { background: var(--color-red); }
+
+.laala-toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.25rem;
+}
+
+.laala-toggle-info label {
+  font-weight: 600;
+  display: block;
+}
+.laala-toggle-info span {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.laala-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+.laala-switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.laala-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-border);
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.laala-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.laala-switch input:checked + .slider {
+  background-color: var(--color-green);
+}
+
+.laala-switch input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+.laala-salary-breakdown {
+  display: flex;
+  gap: 1.5rem;
+}
+.laala-salary-col {
+  flex: 1;
+  background: var(--color-bg-elevated);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.laala-salary-col h4 {
+  margin-bottom: 1.25rem;
+  color: var(--color-text-bright);
+}
+
+.laala-salary-col.ctc-box {
+  background: rgba(245,158,11,0.05);
+  border-color: rgba(245,158,11,0.2);
+}
+
+.laala-tip {
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: var(--color-text-bright);
+}
+
+.laala-separator {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+  margin: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .laala-chips { justify-content: flex-start; padding: 0.75rem 1.25rem; }
+  .laala-grid-2x2 { grid-template-columns: 1fr; }
+  .laala-salary-breakdown { flex-direction: column; }
+  .laala-calc-header h2 { font-size: 1.7rem; }
+}
+
+.text-red { color: var(--color-red-light); }
+.text-green { color: var(--color-green-light); }
+.text-muted { color: var(--color-text-muted); }
+
+.tool-card--gold .tool-card-icon {
+  background: var(--color-gold-glow);
+  color: var(--color-gold);
+  border-color: rgba(245, 166, 35, 0.3);
+}
+.category-badge--gold {
+  background: var(--color-gold);
+  color: #000;
+}
+

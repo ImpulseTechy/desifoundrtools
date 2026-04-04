@@ -114,6 +114,50 @@ export default function HomePage() {
     },
   ];
 
+  const laalaTools = [
+    {
+      icon: '🏪',
+      title: 'Dukaan Profit Calculator',
+      description: 'Roz ka hisaab — ek baar mein. Kitna maal kharida, kitna becha, aur haath mein kya bachha.',
+      href: '/laala-calculators#dukaan-profit',
+      category: 'Laala Tools',
+      categoryColor: 'gold',
+      isPopular: true,
+    },
+    {
+      icon: '🧾',
+      title: 'GST Calculator',
+      description: 'GST ka hisaab — seedha aur simple. Buyer ho ya seller — dono ke liye ek hi jagah.',
+      href: '/laala-calculators#gst-calculator',
+      category: 'Laala Tools',
+      categoryColor: 'gold',
+    },
+    {
+      icon: '📈',
+      title: 'Markup & Selling Price Calculator',
+      description: 'Sahi daam lagao — na zyada, na kam. Cost price se selling price ka seedha hisaab.',
+      href: '/laala-calculators#markup-calculator',
+      category: 'Laala Tools',
+      categoryColor: 'gold',
+    },
+    {
+      icon: '🏦',
+      title: 'EMI Calculator',
+      description: 'Loan ki kist kitni banti hai? Afford hoga ya nahi — pehle hi pata karo.',
+      href: '/laala-calculators#emi-calculator',
+      category: 'Laala Tools',
+      categoryColor: 'gold',
+    },
+    {
+      icon: '👷',
+      title: 'Staff Salary Calculator',
+      description: 'Basic salary se lekar PF, ESIC aur actual cost — sab ek baar mein calculate karo.',
+      href: '/laala-calculators#staff-salary',
+      category: 'Laala Tools',
+      categoryColor: 'gold',
+    },
+  ];
+
   const testimonials = [
     {
       stars: 5,
@@ -260,6 +304,17 @@ export default function HomePage() {
             <p className="category-subtext">Prepare for investor conversations</p>
             <div className="tools-grid tools-grid--2col">
               {fundraisingTools.map((tool) => (
+                <CalculatorCard key={tool.href} {...tool} />
+              ))}
+            </div>
+          </div>
+
+          {/* Laala Ki Dukaan */}
+          <div className="category-section">
+            <h2 className="category-heading">🧔 Laala Ki Dukaan</h2>
+            <p className="category-subtext">Roz ke kaam ke calculators — bilkul seedhe, bilkul free</p>
+            <div className="tools-grid tools-grid--2col">
+              {laalaTools.map((tool) => (
                 <CalculatorCard key={tool.href} {...tool} />
               ))}
             </div>

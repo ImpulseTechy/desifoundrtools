@@ -88,6 +88,7 @@ export default function Header() {
                 <li><Link href="/resources">Resources</Link></li>
                 <li><Link href="/benchmarks">Benchmarks</Link></li>
                 <li><Link href="/shark-tank-glossary">Glossary</Link></li>
+                <li><Link href="/laala-calculators">Laala Calculators</Link></li>
                 <li><Link href="/#about">About</Link></li>
                 <li>
                   <button
@@ -125,6 +126,7 @@ export default function Header() {
         <Link href="/resources" onClick={() => setMenuOpen(false)}>Resources</Link>
         <Link href="/benchmarks" onClick={() => setMenuOpen(false)}>Benchmarks</Link>
         <Link href="/shark-tank-glossary" onClick={() => setMenuOpen(false)}>Glossary</Link>
+        <Link href="/laala-calculators" onClick={() => setMenuOpen(false)}>Laala Calculators</Link>
         {calculators.map((calc) => (
           <Link key={calc.href} href={calc.href} onClick={() => setMenuOpen(false)}>
             {calc.name}
